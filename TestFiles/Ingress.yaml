@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: minimal-ingress
+  annotations:
+    alb.ingress.kubernetes.io/load-balancer-name: "demo-dflight-alb"
+    alb.ingress.kubernetes.io/scheme: "internet-facing"
+    alb.ingress.kubernetes.io/security-groups: "Demo-Dflight public"
+    alb.ingress.kubernetes.io/manage-backend-security-group-rules: "false"
+    alb.ingress.kubernetes.io/wafv2-acl-arn: arn:aws:wafv2:eu-south-1:523753954008:regional/webacl/demo-dflight-waf/51d93094-0e9b-4ac4-9396-9a5098a6b940
+  namespace: lbtest
+spec:
+  ingressClassName: alb
+  rules:
+  - http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: my-service
+            port:
+              number: 80
