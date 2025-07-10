@@ -4,8 +4,8 @@ resource "aws_subnet" "private-logic" {
   cidr_block        = each.value.cidr_block
   availability_zone = each.value.availability_zone
   tags = {
-    "kubernetes.io/cluster/demo-dflight-cluster" = "shared"
-    "kubernetes.io/role/internal-elb"            = "1"
+    #"kubernetes.io/cluster/demo-dflight-cluster" = "shared"
+    #"kubernetes.io/role/internal-elb"            = "1"
     "Name"                                       = each.value.name
   }
 }

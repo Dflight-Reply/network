@@ -105,14 +105,14 @@ resource "aws_vpc_security_group_egress_rule" "private-logic_1500" {
 }
 
 # NodePort del cluster usato per test
-resource "aws_vpc_security_group_ingress_rule" "NodePort-ingress" {
-  security_group_id            = aws_security_group.private-logic.id
-  description                  = "allows TCP port 30080 from public"
-  from_port                    = 30080
-  ip_protocol                  = "tcp"
-  to_port                      = 30080
-  referenced_security_group_id = aws_security_group.public.id
-}
+#resource "aws_vpc_security_group_ingress_rule" "NodePort-ingress" {
+#  security_group_id            = aws_security_group.private-logic.id
+#  description                  = "allows TCP port 30080 from public"
+#  from_port                    = 30080
+#  ip_protocol                  = "tcp"
+#  to_port                      = 30080
+#  referenced_security_group_id = aws_security_group.public.id
+#}
 
 resource "aws_vpc_security_group_egress_rule" "private-logic_all_http" {
   security_group_id = aws_security_group.private-logic.id
