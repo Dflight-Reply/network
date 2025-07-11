@@ -13,5 +13,5 @@ variable "vpc" {
 
 variable "aws_profile" {
   type    = string
-  default = "storm-roma-lab"
+  #default = "storm-roma-lab"
 }

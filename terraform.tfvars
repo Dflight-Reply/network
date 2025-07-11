@@ -7,7 +7,7 @@ tags = {
 }
 
 vpc = {
-  name                                 = "Demo-Dflight" #EU IRELAND NOPROD
+  name                                 = "Dflight-VPC"
   cidr_block                           = "10.0.0.0/17"
   enable_dns_support                   = true
   enable_dns_hostnames                 = true
