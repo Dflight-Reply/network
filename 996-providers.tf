@@ -1,6 +1,6 @@
 provider "aws" {
   region  = var.region
-  profile = "storm-roma-lab"
+  profile = "${var.aws_profile}"
   default_tags {
     tags = try(var.tags.default, null)
   }
