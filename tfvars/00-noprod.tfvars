@@ -117,3 +117,11 @@ vpc = {
     }
   }
 }
+
+backend = {
+  bucket_name = "iac-terraform-state-bucket-eu-south-1-7739265a"
+  region      = "eu-south-1"
+  dynamodb_table = {
+    name = "terraform-state-lock-7739265a"
+  }
+}
