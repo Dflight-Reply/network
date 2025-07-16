@@ -3,6 +3,9 @@ region = "eu-south-1"
 tags = {
   default = {
     "stage" : "noprod"
+    "project" : "Dflight"
+    "layer" : "network"
+    "managed_by" : "terraform"
   }
 }
 

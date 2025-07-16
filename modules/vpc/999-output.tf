@@ -30,14 +30,21 @@ output "securitygroup_default" {
   value = aws_default_security_group.default
 }
 
-# output "alb" {
-#   value = aws_lb.dflight-alb
-# }
+ output "alb" {
+   value = aws_lb.dflight-alb
+ }
+ 
+ output "alb_tg" {
+   value = aws_lb_target_group.dflight-tg-eks
+ }
+ output "alb_listener" {
+   value = aws_lb_listener.dflight-listener
+ }
 
-# output "alb_tg" {
-#   value = aws_lb_target_group.dflight-tg-eks
-# }
+ output "alb_target_group_arn" {
+  value = aws_lb_target_group.dflight-tg-eks.arn
+}
 
-# output "alb_listener" {
-#   value = aws_lb_listener.dflight-listener
-# }
+output "alb_dns_name" {
+  value = aws_lb.dflight-alb.dns_name
+}
