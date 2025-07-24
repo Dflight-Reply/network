@@ -1,5 +1,16 @@
+# Production environment configuration for DFlight Network Infrastructure
 region = "eu-central-1"
 
+# DFlight standardized tagging configuration
+environment            = "prod"
+created_by            = "terraform-automation"
+cost_center           = "IT-Infrastructure"
+department            = "Engineering"
+schedule              = "24x7"
+backup_required       = "true"
+data_classification   = "confidential"
+
+# Legacy tags for backward compatibility
 tags = {
   default = {
     "stage" : "prod"
