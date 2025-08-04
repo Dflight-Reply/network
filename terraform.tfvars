@@ -1,5 +1,15 @@
 region = "eu-south-1"
 
+# DFlight standardized tagging configuration
+environment            = "nonprod"
+created_by            = "terraform-automation"
+cost_center           = "IT-Infrastructure"
+department            = "Engineering"
+schedule              = "reply-office-hours"
+backup_required       = "true"
+data_classification   = "internal"
+
+# Legacy tags for backward compatibility
 tags = {
   default = {
     "stage" : "noprod"
