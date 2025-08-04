@@ -19,13 +19,13 @@ output "ec2_private_data_private_ips" {
   value = { for k, v in aws_instance.private-data : k => v.private_ip }
 }
 
-output "alb_target_group_arn" {
-  value = module.vpc_noprod.alb_target_group_arn
-}
-
-output "alb_dns_name" {
-  value = module.vpc_noprod.alb_dns_name
-}
+# ALB outputs removed - ALB is managed by EKS project
+# output "alb_target_group_arn" {
+#   value = module.vpc_noprod.alb_target_group_arn
+# }
+# output "alb_dns_name" {
+#   value = module.vpc_noprod.alb_dns_name
+# }
 
 # Output to be red from remote state from other projects (e.g. eks)
 output "private_logic_subnet_ids" {
@@ -36,4 +36,15 @@ output "private_logic_subnet_ids" {
 output "private_logic_security_group_id" {
   description = "security group ID for private logic resources"
   value       = module.vpc_noprod.securitygroup_private_logic.id
+}
+
+# WAF outputs for EKS project integration
+output "waf_web_acl_arn" {
+  description = "WAF Web ACL ARN for ALB association in EKS project"
+  value       = module.vpc_noprod.waf_web_acl_arn
+}
+
+output "waf_web_acl_id" {
+  description = "WAF Web ACL ID for reference"
+  value       = module.vpc_noprod.waf_web_acl_id
 }

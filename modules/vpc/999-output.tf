@@ -30,24 +30,25 @@ output "securitygroup_default" {
   value = aws_default_security_group.default
 }
 
-output "alb" {
-  value = aws_lb.dflight-alb
-}
+# ALB outputs removed - ALB is managed by EKS project
+# The EKS project creates and manages the ALB via AWS Load Balancer Controller
+# ALB name: "demo-dflight-alb" (as seen in TestFiles/Ingress.yaml)
 
-output "alb_tg" {
-  value = aws_lb_target_group.dflight-tg-eks
-}
-output "alb_listener" {
-  value = aws_lb_listener.dflight-listener
-}
-
-output "alb_target_group_arn" {
-  value = aws_lb_target_group.dflight-tg-eks.arn
-}
-
-output "alb_dns_name" {
-  value = aws_lb.dflight-alb.dns_name
-}
+# output "alb" {
+#   value = aws_lb.dflight-alb
+# }
+# output "alb_tg" {
+#   value = aws_lb_target_group.dflight-tg-eks
+# }
+# output "alb_listener" {
+#   value = aws_lb_listener.dflight-listener
+# }
+# output "alb_target_group_arn" {
+#   value = aws_lb_target_group.dflight-tg-eks.arn
+# }
+# output "alb_dns_name" {
+#   value = aws_lb.dflight-alb.dns_name
+# }
 
 # WAF Outputs
 output "waf_web_acl_arn" {
