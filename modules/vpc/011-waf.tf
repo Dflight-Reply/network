@@ -85,13 +85,15 @@ resource "aws_wafv2_web_acl" "dflight_waf" {
   tags = local.waf_tags
 }
 
-# Associate WAF with Application Load Balancer
-resource "aws_wafv2_web_acl_association" "dflight_waf_alb_association" {
-  resource_arn = aws_lb.dflight-alb.arn
-  web_acl_arn  = aws_wafv2_web_acl.dflight_waf.arn
+# WAF Association with ALB is managed by EKS project
+# The EKS project will associate this WAF with the ALB via Kubernetes Ingress annotations
+# Example: alb.ingress.kubernetes.io/wafv2-acl-arn: <waf_web_acl_arn>
 
-  depends_on = [
-    aws_lb.dflight-alb,
-    aws_wafv2_web_acl.dflight_waf
-  ]
-}
+# resource "aws_wafv2_web_acl_association" "dflight_waf_alb_association" {
+#   resource_arn = aws_lb.dflight-alb.arn
+#   web_acl_arn  = aws_wafv2_web_acl.dflight_waf.arn
+#   depends_on = [
+#     aws_lb.dflight-alb,
+#     aws_wafv2_web_acl.dflight_waf
+#   ]
+# }
