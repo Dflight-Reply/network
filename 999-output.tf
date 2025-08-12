@@ -2,6 +2,12 @@ output "vpc_id" {
   value = module.vpc_noprod.vpc.id
 }
 
+output "public_subnet_ids" {
+  description = "IDs subnet pubbliche per ALB e NAT Gateway"
+  value       = [for s in module.vpc_noprod.subnet_public : s.id]
+}
+
+# Legacy output for backward compatibility
 output "subnet_ids" {
   value = [for s in module.vpc_noprod.subnet_public : s.id]
 }
@@ -33,9 +39,19 @@ output "private_logic_subnet_ids" {
   value       = [for s in module.vpc_noprod.subnet_private-logic : s.id]
 }
 
+output "private_data_subnet_ids" {
+  description = "IDs subnet private data for databases and storage"
+  value       = [for s in module.vpc_noprod.subnet_private-data : s.id]
+}
+
 output "private_logic_security_group_id" {
   description = "security group ID for private logic resources"
   value       = module.vpc_noprod.securitygroup_private_logic.id
+}
+
+output "private_data_security_group_id" {
+  description = "security group ID for private data resources"
+  value       = module.vpc_noprod.securitygroup_private_data.id
 }
 
 # WAF outputs for EKS project integration
